@@ -23,6 +23,10 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
     }
 
     public int abbassaVolume(int newVolume) {
+        // aggiungo un if per evitare che si mettano numeri negativi
+        if (newVolume < 0) {
+            newVolume = 0;
+        }
         if (this.volume > newVolume) {
             this.volume = newVolume;
         } else {
@@ -32,6 +36,9 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
     }
 
     public int alzaVolume(int newVolume) {
+        if (newVolume < 0) {
+            newVolume = 0;
+        }
         if (this.volume < newVolume) {
             this.volume = newVolume;
         } else {

@@ -1,7 +1,7 @@
 package interfaces;
 
 public interface Luminoso {
-    public void aumentaLuminosita();
+    public void aumentaLuminosita(int luminosita);
 
-    public void diminuisciLuminosita();
+    public void diminuisciLuminosita(int luminosita);
 }
