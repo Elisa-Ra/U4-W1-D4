@@ -18,7 +18,7 @@ public class Immagine extends ElementoMultimediale implements Luminoso, Visualiz
     @Override
     public String toString() {
         return "Tipo di media: Immagine" +
-                ". Titolo: " + this.getTitle();
+                ". Titolo: " + this.getTitle() + ". Luminosità: " + luminosita;
     }
 
     @Override

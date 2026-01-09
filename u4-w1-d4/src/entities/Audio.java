@@ -15,7 +15,7 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
     public Audio(String title, int durata, int volume) {
         super(title); // utilizzo il costruttore del padre per il titolo
         this.durata = durata;
-        this.volume = 5;
+        this.volume = volume;
     }
 
     public int getVolume() {
@@ -50,7 +50,7 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
     @Override
     public String toString() {
         return "Tipo di media: Audio" +
-                ". Titolo: " + this.getTitle();
+                ". Titolo: " + this.getTitle() + ". Volume: " + volume;
     }
 
     @Override
