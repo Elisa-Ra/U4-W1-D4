@@ -1,4 +1,5 @@
 package entities;
+// Il video ha una luminosità ed è riproducibile
 
 import interfaces.Luminoso;
 import interfaces.Riproducibile;
@@ -47,7 +48,8 @@ public class Video extends ElementoMultimediale implements Riproducibile, Lumino
     @Override
     public String toString() {
         return "Tipo di media: Video" +
-                ". Titolo: " + this.getTitle() + ". Volume: " + volume + ". Luminosità: " + luminosita;
+                ". Titolo: " + this.getTitle() + ". Volume: " + volume + ". Durata: " + durata
+                + ". Luminosità: " + luminosita;
     }
 
     @Override
@@ -57,9 +59,14 @@ public class Video extends ElementoMultimediale implements Riproducibile, Lumino
         for (int i = 0; i < volume; i++) {
             puntiEsclamativi += "!";
         }
+        String asterischi = ""; // la inizializzo vuota
+        // aggiungo un asterisco n volte = luminosita
+        for (int i = 0; i < luminosita; i++) {
+            asterischi += "*";
+        }
         // stampo il titolo (con i punti esclamativi) n volte = durata
         for (int i = 0; i < durata; i++) {
-            System.out.println("Titolo: " + getTitle() + puntiEsclamativi);
+            System.out.println("Titolo: " + getTitle() + puntiEsclamativi + asterischi);
         }
     }
 

@@ -1,4 +1,5 @@
 package entities;
+// L'immagine ha una luminosità ed è visualizzabile show()
 
 import interfaces.Luminoso;
 import interfaces.Visualizzabile;

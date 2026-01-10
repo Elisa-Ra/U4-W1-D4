@@ -50,7 +50,7 @@ public class Audio extends ElementoMultimediale implements Riproducibile {
     @Override
     public String toString() {
         return "Tipo di media: Audio" +
-                ". Titolo: " + this.getTitle() + ". Volume: " + volume;
+                ". Titolo: " + this.getTitle() + ". Volume: " + volume + ". Durata: " + durata;
     }
 
     @Override
