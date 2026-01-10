@@ -126,14 +126,97 @@ public class Main {
             ElementoMultimediale playerEseguibile = player[esecuzione - 1];
             // ora devo controllare però che tipo di oggetto è, per eseguirlo o con play() o con show()
             //  uso instanceof
-
+            // Se è AUDIO
             if (playerEseguibile instanceof Audio) {
                 ((Audio) playerEseguibile).play();
+                // aggiungo i metodi per alzare/abbassare il volume
+                System.out.println("Il volume attuale è: " + ((Audio) playerEseguibile).getVolume());
+                System.out.println("Se vuoi alzare il volume premi 1, se vuoi abbassare il volume premi 2. " +
+                        "0 per uscire.");
+                int sceltaVolume = Integer.parseInt(scanner.nextLine());
+                if (sceltaVolume == 0) {
+                    break;
+                } else if (sceltaVolume == 1) {
+                    System.out.println("Alza il volume. Scrivi il valore del nuovo volume da 1 a 10");
+                    int newVolume = Integer.parseInt(scanner.nextLine());
+                    ((Audio) playerEseguibile).alzaVolume(newVolume);
+                } else if (sceltaVolume == 2) {
+                    System.out.println("Abbassa il volume. Scrivi il valore del nuovo volume da 1 a 10");
+                    int newVolume = Integer.parseInt(scanner.nextLine());
+                    ((Audio) playerEseguibile).abbassaVolume(newVolume);
+                } else {
+                    System.out.println("Numero non valido. Puoi inserire un valore compreso tra 0 e 2.");
+                    sceltaVolume = Integer.parseInt(scanner.nextLine());
+                }
+
+                System.out.println("Ora il volume è: " + ((Audio) playerEseguibile).getVolume());
+                System.out.println("L'oggetto aggiornato è: ");
+                ((Audio) playerEseguibile).play();
+
+                // Se è VIDEO, uso lo stesso metodo per alzare/abbassare il volume
+                // e aggiungo il metodo per alzare/abbassare la luminosità
             } else if (playerEseguibile instanceof Video) {
                 ((Video) playerEseguibile).play();
+                // aggiungo i metodi per alzare/abbassare il volume e la luminosità
+                System.out.println("Il volume attuale è: " + ((Video) playerEseguibile).getVolume());
+                System.out.println("La luminosità attuale è: " + ((Video) playerEseguibile).getLuminosita());
+                System.out.println("Se vuoi alzare il volume premi 1, se vuoi abbassare il volume premi 2." +
+                        "Se vuoi aumentare la luminosità premi 3. Se vuoi abbassarla premi 4." +
+                        "0 per uscire.");
+                int scelta = Integer.parseInt(scanner.nextLine());
+                if (scelta == 0) {
+                    break;
+                } else if (scelta == 1) {
+                    System.out.println("Alza il volume. Scrivi il valore del nuovo volume da 1 a 10");
+                    int newVolume = Integer.parseInt(scanner.nextLine());
+                    ((Video) playerEseguibile).alzaVolume(newVolume);
+                } else if (scelta == 2) {
+                    System.out.println("Abbassa il volume. Scrivi il valore del nuovo volume da 1 a 10");
+                    int newVolume = Integer.parseInt(scanner.nextLine());
+                    ((Video) playerEseguibile).abbassaVolume(newVolume);
+                } else if (scelta == 3) {
+                    System.out.println("Alza la luminosità. Scrivi il valore della nuova luminosità da 1 a 10");
+                    int newLuminosita = Integer.parseInt(scanner.nextLine());
+                    ((Video) playerEseguibile).aumentaLuminosita(newLuminosita);
+                } else if (scelta == 4) {
+                    System.out.println("Abbassa la luminosità. Scrivi il valore della nuova luminosità da 1 a 10");
+                    int newLuminosita = Integer.parseInt(scanner.nextLine());
+                    ((Video) playerEseguibile).diminuisciLuminosita(newLuminosita);
+                } else {
+                    System.out.println("Numero non valido. Puoi inserire un valore compreso tra 0 e 2.");
+                    scelta = Integer.parseInt(scanner.nextLine());
+                }
+                System.out.println("L'oggetto aggiornato è: ");
+                ((Video) playerEseguibile).play();
             } else {
+                // Se è IMMAGINE
+                ((Immagine) playerEseguibile).show();
+                // aggiungo i metodi per alzare/abbassare la luminosità
+                System.out.println("La luminosità attuale è: " + ((Immagine) playerEseguibile).getLuminosita());
+                System.out.println("Se vuoi aumentare la luminosità premi 1, " +
+                        "se vuoi abbassare la luminosità premi 2. " +
+                        "0 per uscire.");
+                int sceltaLuminosita = Integer.parseInt(scanner.nextLine());
+                if (sceltaLuminosita == 0) {
+                    break;
+                } else if (sceltaLuminosita == 1) {
+                    System.out.println("Alza la luminosità. Scrivi il valore della nuova luminosità da 1 a 10");
+                    int newLuminosita = Integer.parseInt(scanner.nextLine());
+                    ((Immagine) playerEseguibile).aumentaLuminosita(newLuminosita);
+                } else if (sceltaLuminosita == 2) {
+                    System.out.println("Abbassa la luminosità. Scrivi il valore della nuova luminosità da 1 a 10");
+                    int newLuminosita = Integer.parseInt(scanner.nextLine());
+                    ((Immagine) playerEseguibile).diminuisciLuminosita(newLuminosita);
+                } else {
+                    System.out.println("Numero non valido. Puoi inserire un valore compreso tra 0 e 2.");
+                    sceltaLuminosita = Integer.parseInt(scanner.nextLine());
+                }
+
+                System.out.println("Ora la luminosità è di: " + ((Immagine) playerEseguibile).getLuminosita());
+                System.out.println("L'oggetto aggiornato è: ");
                 ((Immagine) playerEseguibile).show();
             }
         }
+
     }
 }

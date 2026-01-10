@@ -70,6 +70,10 @@ public class Video extends ElementoMultimediale implements Riproducibile, Lumino
         }
     }
 
+    public int getLuminosita() {
+        return luminosita;
+    }
+
     @Override
     public void aumentaLuminosita(int newLuminosita) {
         // aggiungo un if per evitare che si mettano numeri negativi
